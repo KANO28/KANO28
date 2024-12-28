@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>宿舍个人主页</title>
+<style>
+    
+    /* 全局样式 */
+    body {
+        
+        font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://e3f49eaa46b57.cdn.sohucs.com/2022/7/17/6/36/MTAwMTM1XzE2NTgwMTA5Njk5NTA=.jpg'); /* 替换为你的背景图片链接 */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #333;
+    overflow-x: hidden;
+        
+    }
+    .header {
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 2rem;
+        font-weight: bold;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /*position: fixed; /* 固定在顶部 */
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+    /* 顶部导航栏 */
+    .navbar {
+        background-color: #4CAF50;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 15px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+       /* position: fixed; /* 固定在顶部 */
+        top: 60px; /* 与标题的高度保持间距 */
+        width: 100%;
+        z-index: 999;
+    }
+    .navbar a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.2rem;
+        padding: 8px 15px;
+        transition: background-color 0.3s ease;
+    }
+    .navbar a:hover {
+        background-color: #45a049;
+        border-radius: 5px;
+    }
+
+    /* 主内容区 */
+    .content {
+        display: none; /* 隐藏所有内容，默认显示第一个 */
+        padding: 120px 20px;
+        text-align: center;
+        animation: fadeIn 1s ease;
+    }
+    .content.active {
+        display: block;
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .carousel {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .carousel img {
+        width: 100%;
+        display: none;
+        transition: opacity 0.5s ease;
+    }
+    .carousel img.active {
+        display: block;
+        opacity: 1;
+    }
+    .carousel .prev,
+    .carousel .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .carousel .prev {
+        left: 10px;
+    }
+    .carousel .next {
+        right: 10px;
+    }
+    .carousel .prev:hover,
+    .carousel .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    /* 每个成员的分区样式 */
+    .profile {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-width: 800px;
+        margin: 20px auto;
+    }
+    .profile img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        transition: transform 0.3s ease;
+    }
+    .profile img:hover {
+        transform: scale(1.05);
+    }
+    .profile h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        color: #4CAF50;
+    }
+    .profile p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #666;
+    }
+    .profile iframe {
+        width: 100%;
+        height: 300px;
+        border: none;
+        margin-top: 20px;
+        border-radius: 10px;
+    }
+
+    /* 页脚 */
+    footer {
+        text-align: center;
+        padding: 10px 0;
+        background-color: #4CAF50;
+        color: white;
+        font-size: 1rem;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
+</head>
+<body>
+    <div class="header">
+        123宿舍主页
+    </div>
+<!-- 顶部导航栏 -->
+<div class="navbar">
+    
+    <a href="#" data-target="member1">朱浙洋</a>
+    <a href="#" data-target="member2">张金磊</a>
+    <a href="#" data-target="member3">徐鑫彬</a>
+    <a href="#" data-target="member4">祝健豪</a>
+    <a href="#" data-target="member5">刘一漳</a>
+    <a href="#" data-target="member6">赵永康</a>
+</div>
+
+<!-- 主内容区域 -->
+<div id="member1" class="content active">
+   
+    <div class="profile">
+        <img src="https://i.ibb.co/L8BR0DL/a145397af6b1e44824588c366d7c8ad.jpg" alt="成员1">
+        <div class="carousel">
+            <img src="https://i.ibb.co/dkHBjKF/ab964e86b5b3f4b15614940ebe8bbd4.jpg" class="active" alt="成员1图片1">
+            <img src="https://i.ibb.co/rtym1Tf/8c9d9355a25af1086ec4965d0c5e75a.jpg" alt="成员1图片2">
+            <img src="https://i.ibb.co/HBpcR22/f0989d558a8423af7fc984cf3f26f4e.jpg" alt="成员1图片3">
+            <button class="prev">←</button>
+            <button class="next">→</button>
+        </div>
+        <h2>朱浙洋</h2>
+        <p>爱好打枪，剪辑，抽象，是123宿舍的游戏糕手和美丽交际花</p>
+        <iframe src="https://easylink.cc/9j00s7" allowfullscreen></iframe>
+    </div>
+    
+</div>
+
+<div id="member2" class="content">
+    
+    <div class="profile">
+        <img src="https://i.ibb.co/162zHDP/2ba73f71e041ef25b18eb96a7563037.jpg" alt="成员2">
+        <div class="carousel">
+            <img src="https://i.ibb.co/72h6qz5/b1dcf14031c1c9e0ee03b075b6d8ca2.jpg" class="active" alt="成员2图片1">
+            <img src="https://i.ibb.co/wMKKShw/dd325ea5a81898d0b43a113b6852577.jpg" alt="成员2图片2">
+            <img src="https://i.ibb.co/5vwSFnd/a6c0b1c6f1325f78268bc6ee8cd27a3.jpg" alt="成员2图片3">
+            <button class="prev">←</button>
+            <button class="next">→</button>
+        </div>
+        <h2>张金磊</h2>
+        <p>残疾人，熬夜大王，翘课全对神棍，游戏糕手，南阳第一陈坤</p>
+        <iframe src="https://easylink.cc/nbymlq" allowfullscreen></iframe>
+    </div>
+</div>
+
+<div id="member3" class="content">
+    <div class="profile">
+        <img src="https://i.ibb.co/c2mqMNv/1f5fdcb7f969d83a4d3fed0fb1fb6bb.jpg" alt="成员3">
+        <div class="carousel">
+            <img src="https://i.ibb.co/pnj6bk5/b36463e4c8603a78b5e349ed85fcc40.jpg" class="active" alt="成员3图片1">
+            <img src="https://i.ibb.co/n7gV9sy/f1c8f29c1c137a38934d029ad5dac5c.jpg" alt="成员3图片2">
+            <img src="https://i.ibb.co/svWbDC1/a136872a33655e1491fbd8cfc6bda58.jpg" alt="成员3图片3">
+            <button class="prev">←</button>
+            <button class="next">→</button>
+        </div>
+        <h2>徐鑫彬</h2>
+        <p>游戏制作糕手，专业知识百科，超级伪人AI，派犬，绝畜，变态猫咪控</p>
+        <iframe src="https://easylink.cc/pdkofx" allowfullscreen></iframe>
+    </div>
+</div>
+
+<div id="member4" class="content">
+    <div class="profile">
+        <img src="https://i.ibb.co/n12Dxkt/8f03a348dc9570acf9e3c85043197d2.jpg" alt="成员4">
+        <div class="carousel">
+            <img src="https://i.ibb.co/7RcRFC8/2ce3ae72e96fc6c5efbfe5ba62e7879.jpg" class="active" alt="成员4图片1">
+            <img src="https://i.ibb.co/fDZZh8X/d3a307e2c965bbca3582a4195fad8b4.jpg" alt="成员4图片2">
+            <img src="https://i.ibb.co/FHktwHs/0c4dc760f9377f9e132642eb2aaf7d7.jpg" alt="成员4图片3">
+            <button class="prev">←</button>
+            <button class="next">→</button>
+        </div>
+        <h2>祝健豪</h2>
+        <p>痴情王子，运动王，每天都看不见人，撒狗粮大帝，神神秘秘</p>
+        <iframe src="https://easylink.cc/xht760" allowfullscreen></iframe>
+    </div>
+</div>
+
+<div id="member5" class="content">
+    <div class="profile">
+        <img src="https://i.ibb.co/hFJBKMn/efcf7c1a47d4073779a6de22d44465d.jpg" alt="成员5">
+        <div class="carousel">
+            <img src="https://i.ibb.co/HLSc0vD/e124d5a545c36731dc46076e8a0a361.jpg" class="active" alt="成员5图片1">
+            <img src="https://i.ibb.co/Xb0R9cZ/2e362ea34d948ca696223350e561d58.jpg" alt="成员5图片2">
+            <img src="https://i.ibb.co/zmWfp9P/072b1cf8c6f7ca3477e83836b674ac9.jpg" alt="成员5图片3">
+            <button class="prev">←</button>
+            <button class="next">→</button>
+        </div>
+        <h2>刘一漳</h2>
+        <p>二刺螈，米孝子，原批崩批零批，早睡早起大王，超级侦察兵，炮灰社畜典范</p>
+        <iframe src="https://easylink.cc/example3" allowfullscreen></iframe>
+    </div>
+</div>
+
+<div id="member6" class="content">
+    <div class="profile">
+        <img src="https://i.ibb.co/q9dsvvK/e404b69afa9c8411ccb322588317e7d.jpg" alt="成员6">
+        <div class="carousel">
+            <img src="https://i.ibb.co/4msbFwZ/06400489e19e332c1ffbf50c5836864.jpg" class="active" alt="成员4图片1">
+            <img src="https://i.ibb.co/k3dwjtJ/6f09d38211f5a42f5d4fe465da88f77.jpg" alt="成员4图片2">
+            <img src="https://i.ibb.co/L54qFwy/5f7972ecb031402c2ed2ca4fd2ce724.jpg" alt="成员4图片3">
+            <button class="prev">←</button>
+            <button class="next">→</button>
+        </div>
+        <h2>赵永康</h2>
+        <p>寝室的大爹，无需多言</p>
+        <iframe src="https://easylink.cc/example3" allowfullscreen></iframe>
+    </div>
+</div>
+
+<!-- 页脚 -->
+<footer>
+    © 2024 宿舍主页 | 设计：赵永康
+</footer>
+
+<script>
+    // 图片轮播逻辑
+    document.querySelectorAll('.carousel').forEach(carousel => {
+        const images = carousel.querySelectorAll('img');
+        const prev = carousel.querySelector('.prev');
+        const next = carousel.querySelector('.next');
+        let currentIndex = 0;
+
+        const updateCarousel = () => {
+            images.forEach((img, index) => {
+                img.classList.toggle('active', index === currentIndex);
+            });
+        };
+
+        prev.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateCarousel();
+        });
+
+        next.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateCarousel();
+        });
+    });
+
+    // 导航栏切换逻辑
+    const navbarLinks = document.querySelectorAll('.navbar a');
+    const contentSections = document.querySelectorAll('.content');
+
+    navbarLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault(); // 阻止默认跳转行为
+
+            const targetId = this.getAttribute('data-target');
+
+            contentSections.forEach(section => section.classList.remove('active'));
+            document.getElementById(targetId).classList.add('active');
+        });
+    });
+</script>
+
+</body>
+</html>
